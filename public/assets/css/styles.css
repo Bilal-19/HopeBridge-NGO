@@ -1,0 +1,133 @@
+.donate-btn,
+.email-submit-btn,
+.view-more-btn {
+    background-color: #99774d;
+    color: white;
+    width: fit-content;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.donate-btn:hover {
+    color: #99774d;
+    background-color: white;
+    border: 1px solid #99774d;
+}
+
+.text-dark-green {
+    color: #17422e;
+}
+
+.text-dark-gold {
+    color: #99774d;
+}
+
+.bg-dark-green {
+    background-color: #17422e;
+}
+
+.text-soft-green {
+    color: #86ae7c;
+}
+
+.footer-nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-nav-link:hover {
+    color: #99774d;
+}
+
+.brand-btn {
+    background-color: #17422e;
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+.brand-btn:hover {
+    color: #17422e;
+    background-color: white;
+    border: 1px solid #17422e;
+}
+
+.nav-link-transition {
+    position: relative;
+}
+
+.nav-link-transition::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: #99774d;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    opacity: 0;
+    transition: all 0.2s;
+    pointer-events: none;
+}
+
+
+.nav-link-transition:hover::after {
+    opacity: 1;
+}
+
+.brand-golden-button{
+    background-color: #99774d;
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    height: fit-content;
+}
+
+.brand-golden-button:hover{
+    color: #99774d;
+    background-color: white;
+    border: 1px solid #99774d;
+}
+
+.social-icon{
+    background-color: white;
+    color: #99774d;
+    height: fit-content;
+    width: fit-content;
+    padding: 8px 10px;
+}
+
+.social-icon:hover{
+    background-color: #99774d;
+    color: white;
+}
+
+#contact-us-bg-img{
+background-image: url("https://images.unsplash.com/photo-1511207442400-5c49b8aa51d6?q=80&w=1410&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.donation-card{
+    background-color: #17422e;
+    color: white;
+}
+
+.donation-card:hover{
+    color: #17422e;
+    background-color: white;
+    border: 1px solid #17422e;
+}
+@media screen and (max-width: 768px)  {
+    .offcanvas-header{
+        color: #17422e;
+    }
+
+    .text-sm-dark-green{
+        color: #17422e;
+    }
+}
