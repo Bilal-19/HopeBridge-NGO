@@ -258,6 +258,14 @@
                                     FAQ's
                                 </a>
                             </li>
+
+                            <li class="nav-item mb-1">
+                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
+                                    href="{{route('Customer.Inquiry')}}">
+                                    <i class="fa-solid fa-question"></i>
+                                    Customer Enquiries
+                                </a>
+                            </li>
                         </ul>
 
                         <h6

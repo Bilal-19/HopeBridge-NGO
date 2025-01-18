@@ -12,10 +12,10 @@
 
             @foreach ($newsRecords as $record)
                 <div class="col-md-3 mt-3 mb-3">
-                    <img src="{{ asset('News/' . $record->news_featured_image) }}" alt="" class="img-fluid">
-                    <div class="d-flex justify-content-between">
-                        <a href="">Edit</a>
-                    <a href="">Delete</a>
+                    <img src="{{ asset('News/' . $record->news_featured_image) }}" alt="" class="img-fluid rounded">
+                    <div class="d-flex justify-content-end align-items-between">
+                        <a href="{{route('Edit.News', ['id' => $record->id])}}" class="text-primary mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{route('Delete.News', ['id' => $record->id])}}" class="text-danger"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             @endforeach

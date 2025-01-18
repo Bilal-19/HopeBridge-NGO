@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FAQs;
+use App\Models\Inquiry;
 use App\Models\News;
 use App\Models\Partners;
 use App\Models\Projects;
@@ -16,10 +17,6 @@ class AdminController extends Controller
         return view('Admin.Dashboard');
     }
 
-    public function Donation()
-    {
-        return view('Admin.Donation');
-    }
 
     public function News()
     {
@@ -58,6 +55,50 @@ class AdminController extends Controller
         if ($result) {
             toastr()->success('News published successfully!');
             return redirect()->back();
+        }
+    }
+
+    public function editNewsForm($id)
+    {
+        $findNewsRecord = News::find($id);
+        return view('Admin.EditNews')->with(compact('findNewsRecord'));
+    }
+
+    public function updateNews(Request $request, $id)
+    {
+        $request->validate([
+            'news_headline' => 'required',
+            'news_description' => 'required',
+            'news_category' => 'required',
+            'featuredImg' => 'required',
+            'publish_date' => 'required'
+        ]);
+        $findNewsRecord = News::find($id);
+        $findNewsRecord->news_headline = $request->news_headline;
+        $findNewsRecord->news_content = $request->news_description;
+        $findNewsRecord->news_category = $request->news_category;
+        $findNewsRecord->publish_date = $request->publish_date;
+        $findNewsRecord->news_featured_image = time() . '.' . $request->featuredImg->getClientOriginalExtension();
+
+        $request->featuredImg->move('News', time() . '.' . $request->featuredImg->getClientOriginalExtension());
+
+        $result = $findNewsRecord->save();
+
+        if ($result) {
+            toastr()->success('News content updated successfully');
+            return redirect()->route('News');
+        }
+    }
+
+    public function deleteNews($id)
+    {
+        $findNewsRecord = News::find($id);
+        if ($findNewsRecord) {
+            $isDeleted = $findNewsRecord->delete();
+            if ($isDeleted) {
+                toastr()->addNotification('info', 'This news record deleted successfully');
+                return redirect()->route('News');
+            }
         }
     }
     public function Partners()
@@ -375,7 +416,8 @@ class AdminController extends Controller
 
     public function FAQ()
     {
-        return view('Admin.FAQ');
+        $faqRecords = FAQs::all();
+        return view('Admin.FAQ')->with(compact('faqRecords'));
     }
 
     public function FaqForm()
@@ -405,6 +447,47 @@ class AdminController extends Controller
             toastr()->success('New FAQ Added Successfully');
             return redirect()->route('FAQ');
         }
+    }
+
+    public function editFAQform($id)
+    {
+        $findFAQrecord = FAQs::find($id);
+        return view('Admin.EditFAQ')->with(compact('findFAQrecord'));
+    }
+
+    public function updateFAQ(Request $request, $id){
+        $request->validate([
+            'question' => 'required',
+            'answer' => 'required'
+        ]);
+
+        $findFAQrecord = FAQs::find($id);
+        $findFAQrecord->question = $request->question;
+        $findFAQrecord->answer = $request->answer;
+
+        $result = $findFAQrecord->save();
+
+        if ($result){
+            toastr()->success('FAQ updated successfully');
+            return redirect()->route('FAQ');
+        }
+    }
+
+    public function deleteFAQ($id){
+        $findFAQrecord = FAQs::find($id);
+
+        if ($findFAQrecord){
+            $res = $findFAQrecord->delete();
+            if ($res){
+                toastr()->success('FAQ deleted successfully.');
+                return redirect()->route('FAQ');
+            }
+        }
+    }
+
+    public function customerInquiry(){
+        $inquiryRecords = Inquiry::all();
+        return view('Admin.CustomerInquiries')->with(compact('inquiryRecords'));
     }
 
 }
