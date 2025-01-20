@@ -20,12 +20,12 @@
 }
 
 .sidebar .nav-link {
-  font-size: .875rem;
-  font-weight: 500;
+  color: #17422e;
 }
 
 .sidebar .nav-link.active {
-  color: #2470dc;
+  color: white;
+  background-color: #17422e;
 }
 
 .sidebar-heading {
@@ -54,4 +54,9 @@ h1,h2,h3,h4,h5,h6{
 
 p,a,button,i{
     font-family: "Roboto", sans-serif;
+}
+
+.active-link{
+    background-color: #17422e;
+    color: aliceblue !important;
 }

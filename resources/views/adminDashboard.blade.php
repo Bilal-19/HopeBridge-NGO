@@ -167,7 +167,7 @@
     </svg>
 
     <header class="navbar sticky-top bg-dark-green flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{route('Dashboard')}}">
             Hope Bridge ~ Connecting Lives, Creating Futures
         </a>
         <ul class="navbar-nav flex-row d-md-none">
@@ -199,7 +199,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-dark-green">
+            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 text-dark-green">
                 <div class="offcanvas-md offcanvas-end bg-dark-green" tabindex="-1" id="sidebarMenu"
                     aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header">
@@ -209,107 +209,66 @@
                     </div>
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-1">
-                                <a class="nav-link text-light text-sm-dark-green d-flex align-items-center gap-3"
-                                    aria-current="page" href="{{ route('Dashboard') }}">
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("Dashboard") ? "active-link": ""}}" aria-current="page" href="{{ route('Dashboard') }}">
                                     <i class="fa-solid fa-house"></i>
                                     Dashboard
                                 </a>
                             </li>
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('Dashboard.Projects') }}">
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("Dashboard.Projects") ? "active-link": ""}}" href="{{ route('Dashboard.Projects') }}">
                                     <i class="fa-solid fa-tree"></i> Projects
                                 </a>
                             </li>
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('Partners') }}">
-                                    <i class="fa-solid fa-handshake"></i>Partners
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("Partners") ? "active-link": ""}}" href="{{ route('Partners') }}">
+                                    <i class="fa-solid fa-handshake"></i> Partners
 
                                 </a>
                             </li>
 
 
 
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('Team') }}">
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("Team") ? "active-link": ""}}" href="{{ route('Team') }}">
                                     <i class="fa-solid fa-people-group"></i>
                                     Our Team
                                 </a>
                             </li>
 
 
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('News') }}">
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("News") ? "active-link": ""}}" href="{{ route('News') }}">
                                     <i class="fa-solid fa-envelope"></i>
                                     News
                                 </a>
                             </li>
 
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('Users') }}">
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("Users") ? "active-link": ""}}" href="{{ route('Users') }}">
                                     <i class="fa-solid fa-users"></i>
                                     User Management
                                 </a>
                             </li>
 
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('FAQ') }}">
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("FAQ") ? "active-link": ""}}" href="{{ route('FAQ') }}">
                                     <i class="fa-solid fa-question"></i>
                                     FAQ's
                                 </a>
                             </li>
 
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{ route('Customer.Inquiry') }}">
-                                    <i class="fa-solid fa-question"></i>
-                                    Customer Enquiries
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h6
-                            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 text-light text-uppercase">
-                            <span>Trash</span>
-                            <a class="link-light" href="#" aria-label="Add a new report">
-                                <svg class="bi">
-                                    <use xlink:href="#plus-circle" />
-                                </svg>
-                            </a>
-                        </h6>
-                        <ul class="nav flex-column mb-auto">
-                            <li class="nav-item mb-1">
-                                <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
-                                    <i class="fa-solid fa-trash"></i>
-                                    View Trash
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("Customer.Inquiry") ? "active-link": ""}}" href="{{ route('Customer.Inquiry') }}">
+                                    <i class="fa-solid fa-question-circle"></i>
+                                    Customer Inquiries
                                 </a>
                             </li>
 
-                        </ul>
-
-                        <hr class="my-3 text-light">
-
-                        <ul class="nav flex-column mb-auto mt-2">
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
-                                    <svg class="bi">
-                                        <use xlink:href="#gear-wide-connected" />
-                                    </svg>
-                                    Settings
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 text-light" href="#">
-                                    <svg class="bi">
-                                        <use xlink:href="#door-closed" />
-                                    </svg>
-                                    Sign out
+                            <li class="nav-item mb-3">
+                                <a class="nav-link gap-3 {{request()->routeIs("#") ? "active-link": ""}}" href="#">
+                                    <i class="fa fa-sign-out"></i>
+                                    Log out
                                 </a>
                             </li>
                         </ul>
