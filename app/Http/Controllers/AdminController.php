@@ -184,9 +184,15 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
-    public function Projects()
+    public function Projects(Request $request)
     {
-        $projects = Projects::all();
+        $search = $request->search ?? "";
+
+        if ($search != null) {
+            $projects = Projects::where('title', 'LIKE', "%$search%")->get();
+        } else {
+            $projects = Projects::all();
+        }
         return view('Admin.Projects')->with(compact('projects'));
     }
 
@@ -455,7 +461,8 @@ class AdminController extends Controller
         return view('Admin.EditFAQ')->with(compact('findFAQrecord'));
     }
 
-    public function updateFAQ(Request $request, $id){
+    public function updateFAQ(Request $request, $id)
+    {
         $request->validate([
             'question' => 'required',
             'answer' => 'required'
@@ -467,25 +474,27 @@ class AdminController extends Controller
 
         $result = $findFAQrecord->save();
 
-        if ($result){
+        if ($result) {
             toastr()->success('FAQ updated successfully');
             return redirect()->route('FAQ');
         }
     }
 
-    public function deleteFAQ($id){
+    public function deleteFAQ($id)
+    {
         $findFAQrecord = FAQs::find($id);
 
-        if ($findFAQrecord){
+        if ($findFAQrecord) {
             $res = $findFAQrecord->delete();
-            if ($res){
+            if ($res) {
                 toastr()->success('FAQ deleted successfully.');
                 return redirect()->route('FAQ');
             }
         }
     }
 
-    public function customerInquiry(){
+    public function customerInquiry()
+    {
         $inquiryRecords = Inquiry::all();
         return view('Admin.CustomerInquiries')->with(compact('inquiryRecords'));
     }

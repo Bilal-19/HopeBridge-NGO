@@ -1,6 +1,10 @@
 @extends('adminDashboard')
 @section('main-section')
     <div class="container-fluid">
+        <div class="row mt-3">
+            <h3 class="text-center">All <span class="text-dark-green fw-bold">Projects</span></h3>
+        </div>
+
         <div class="row mt-5">
             <div class="col-md-4">
                 <a href="{{ route('Add.Project') }}" type="button" class="brand-btn">Add New Project</a>
@@ -9,9 +13,10 @@
 
         <div class="row mt-3">
             <div class="col-md-6 mx-auto">
-                <form action="">
+                <form action="{{route('Dashboard.Projects')}}" method="get">
+                    @csrf
                     <div class="input-group">
-                        <input type="search" class="form-control" placeholder="Search project by title, duration, budget">
+                        <input type="search" class="form-control" placeholder="Search project by title" name="search">
                         <button type="search" class="brand-btn">Search</button>
                     </div>
                 </form>
