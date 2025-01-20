@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>NGO Website</title>
+    <title>Hope Bridge ~ Connecting Lives, Creating Futures</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </head>
@@ -204,8 +210,8 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item mb-1">
-                                <a class="nav-link text-light text-sm-dark-green d-flex align-items-center gap-3" aria-current="page"
-                                    href="{{ route('Dashboard') }}">
+                                <a class="nav-link text-light text-sm-dark-green d-flex align-items-center gap-3"
+                                    aria-current="page" href="{{ route('Dashboard') }}">
                                     <i class="fa-solid fa-house"></i>
                                     Dashboard
                                 </a>
@@ -253,7 +259,7 @@
 
                             <li class="nav-item mb-1">
                                 <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{route('FAQ')}}">
+                                    href="{{ route('FAQ') }}">
                                     <i class="fa-solid fa-question"></i>
                                     FAQ's
                                 </a>
@@ -261,7 +267,7 @@
 
                             <li class="nav-item mb-1">
                                 <a class="nav-link d-flex align-items-center gap-3 mb-1 text-light"
-                                    href="{{route('Customer.Inquiry')}}">
+                                    href="{{ route('Customer.Inquiry') }}">
                                     <i class="fa-solid fa-question"></i>
                                     Customer Enquiries
                                 </a>
