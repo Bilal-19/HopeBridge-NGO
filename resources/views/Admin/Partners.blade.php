@@ -1,6 +1,11 @@
 @extends('adminDashboard')
 @section('main-section')
     <div class="container-fluid">
+
+        <div class="row mt-3">
+            <h3 class="text-center">All <span class="text-dark-green fw-bold">Partners</span></h3>
+        </div>
+
         <div class="row mt-5">
             <div class="col-md-3">
                 <a href="{{ route('Add.Partner.Form') }}" class="brand-btn">Add New Partner</a>
@@ -8,9 +13,10 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-6 mx-auto">
-                <form action="">
+                <form action="{{route('Partners')}}" method="get" autocomplete="off">
+                    @csrf
                     <div class="input-group">
-                        <input type="search" class="form-control" placeholder="Search partner by name">
+                        <input type="search" class="form-control" placeholder="Search partner by name" name="search">
                         <button type="search" class="brand-btn">Search</button>
                     </div>
                 </form>

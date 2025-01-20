@@ -101,9 +101,15 @@ class AdminController extends Controller
             }
         }
     }
-    public function Partners()
+    public function Partners(Request $request)
     {
-        $partners = Partners::all();
+        $search = $request->search ?? null;
+
+        if ($search != null) {
+            $partners = Partners::where('partner_name', 'LIKE', "%$search%")->get();
+        } else {
+            $partners = Partners::all();
+        }
         return view('Admin.Partners')->with(compact('partners'));
     }
 
