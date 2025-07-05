@@ -227,16 +227,16 @@ class AdminController extends Controller
 
         if ($files = $request->file('images')) {
             foreach ($files as $file) {
-                $imageName = md5(rand(1000, 10000));
-                // extract file extenstion
-                $extension = strtolower($file->getClientOriginalExtension());
-                $imgFullName = $imageName . '.' . $extension;
-                $uploadPath = 'projects/images/';
-                $imageURL = $uploadPath . $imgFullName;
-                $file->move($uploadPath, $imgFullName);
-                $images[] = $imageURL;
+                $image_name = md5(rand(1000, 10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name = $image_name . '.' . $ext;
+                $upload_path = 'Project/Images/';
+                $image_url = $upload_path . $image_full_name;
+                $file->move($upload_path, $image_full_name);
+                $image[] = $image_url;
             }
         }
+
         // Store the project data into database table
         $project = new Projects();
         $project->title = $request->title;
@@ -251,9 +251,7 @@ class AdminController extends Controller
         // store thumbnail image to public directory
         $request->thumbnailImage->move('projects/thumbnail', $thumbnailImage);
 
-        // Here 'implode' function place multiple image names into a single array.
-        // 'json_encode' convert data into JSON format
-        $project->images = json_encode(implode('|', $images));
+        $project->images = $image;
         $result = $project->save();
 
         if ($result) {
